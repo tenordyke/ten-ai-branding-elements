@@ -23,52 +23,6 @@
             overflow: hidden;
         }
 
-        /* Particle effect */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .particle::after {
-            content: '';
-            position: absolute;
-            width: 150px;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(var(--rotation));
-            transform-origin: left center;
-        }
-
-        /* Generate 30 particles with different positions and rotations */
-        .particle:nth-child(1) { top: 20%; left: 10%; --rotation: 30deg; }
-        .particle:nth-child(2) { top: 40%; left: 20%; --rotation: -45deg; }
-        .particle:nth-child(3) { top: 60%; left: 30%; --rotation: 60deg; }
-        .particle:nth-child(4) { top: 30%; left: 40%; --rotation: -30deg; }
-        .particle:nth-child(5) { top: 70%; left: 50%; --rotation: 45deg; }
-        .particle:nth-child(6) { top: 25%; left: 60%; --rotation: -60deg; }
-        .particle:nth-child(7) { top: 45%; left: 70%; --rotation: 30deg; }
-        .particle:nth-child(8) { top: 65%; left: 80%; --rotation: -45deg; }
-        .particle:nth-child(9) { top: 35%; left: 90%; --rotation: 60deg; }
-        .particle:nth-child(10) { top: 55%; left: 15%; --rotation: -30deg; }
-        .particle:nth-child(11) { top: 75%; left: 25%; --rotation: 45deg; }
-        .particle:nth-child(12) { top: 15%; left: 35%; --rotation: -60deg; }
-        .particle:nth-child(13) { top: 85%; left: 45%; --rotation: 30deg; }
-        .particle:nth-child(14) { top: 25%; left: 55%; --rotation: -45deg; }
-        .particle:nth-child(15) { top: 45%; left: 65%; --rotation: 60deg; }
-
         .safe-area {
             position: absolute;
             top: 50%;
@@ -77,79 +31,70 @@
             width: 1546px; /* Mobile safe area width */
             height: 423px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
             z-index: 2;
-            padding: 0 60px;
-            box-sizing: border-box;
-        }
-
-        .text-content {
-            max-width: 800px;
+            padding-left: 300px; /* Space for profile picture */
         }
 
         .title {
-            font-size: 72px;
+            font-size: 84px;
             font-weight: 800;
-            margin: 0 0 20px 0;
             line-height: 1.1;
-            background: linear-gradient(90deg, #FF6B4A, #FF4A8B, #4A9FFF);
+            margin: 0 0 40px 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, 
+                #FF6B4A 0%, 
+                #FF4A8B 50%, 
+                #4A9FFF 100%
+            );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        .subtitle {
-            font-size: 24px;
-            color: #e5e7eb;
-            margin: 0;
-            line-height: 1.4;
-            max-width: 600px;
+        .features {
+            display: flex;
+            gap: 60px;
         }
 
-        .metrics {
-            background: rgba(11, 15, 23, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 450px;
-        }
-
-        .metric {
-            margin-bottom: 20px;
-            color: #e5e7eb;
-        }
-
-        .metric:last-child {
-            margin-bottom: 0;
-        }
-
-        .metric-title {
-            font-size: 20px;
-            margin-bottom: 8px;
+        .feature {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 16px;
+            color: #e5e7eb;
+            font-size: 24px;
         }
 
-        .metric-value {
-            font-size: 36px;
-            font-weight: 700;
+        .feature-icon {
             color: #FF4A8B;
+            font-size: 32px;
         }
 
-        .icon {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(90deg, #FF6B4A, #FF4A8B);
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: center;
+        .orange { color: #FF6B4A; }
+        .pink { color: #FF4A8B; }
+        .blue { color: #4A9FFF; }
+
+        /* Profile picture placeholder */
+        .profile-placeholder {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
             justify-content: center;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 14px;
         }
 
-        /* Visual guides for safe areas */
+        /* Safe area guides */
         .safe-area-guide {
             position: absolute;
             top: 50%;
@@ -182,25 +127,6 @@
 </head>
 <body>
     <div class="banner">
-        <div class="particles">
-            <!-- Generate 15 particles -->
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-
         <!-- Safe area guides -->
         <div class="safe-area-guide tv-safe"></div>
         <div class="safe-area-guide desktop-safe"></div>
@@ -208,31 +134,27 @@
         <div class="safe-area-guide mobile-safe"></div>
 
         <div class="safe-area">
-            <div class="text-content">
-                <h1 class="title">Transform Your Real Estate Business</h1>
-                <p class="subtitle">AI-Powered Automation for Modern Real Estate Professionals</p>
-            </div>
-            <div class="metrics">
-                <div class="metric">
-                    <div class="metric-title">
-                        <span class="icon">⚡</span>
-                        Time Saved
-                    </div>
-                    <div class="metric-value">20+ hrs/week</div>
+            <!-- Profile picture placeholder -->
+            <div class="profile-placeholder">Profile Picture Area</div>
+
+            <h1 class="title">
+                <span class="gradient-text">Transform Your Real</span><br>
+                <span class="gradient-text">Estate Business</span><br>
+                <span style="color: white;">With Intelligent</span><br>
+                <span style="color: white;">AI Automation</span>
+            </h1>
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon orange">⏱</span>
+                    Save 20+ Hours/Week
                 </div>
-                <div class="metric">
-                    <div class="metric-title">
-                        <span class="icon">📈</span>
-                        Deal Flow
-                    </div>
-                    <div class="metric-value">2x Increase</div>
+                <div class="feature">
+                    <span class="feature-icon pink">⚡</span>
+                    24/7 Lead Response
                 </div>
-                <div class="metric">
-                    <div class="metric-title">
-                        <span class="icon">🎯</span>
-                        Lead Response
-                    </div>
-                    <div class="metric-value">24/7</div>
+                <div class="feature">
+                    <span class="feature-icon blue">📈</span>
+                    2x Deal Flow
                 </div>
             </div>
         </div>
