@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ten AI Tech - Loading Spinner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #111827;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .spinner-container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 2s linear infinite;
+        }
+
+        .spinner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f97316, #2563eb);
+            mask: radial-gradient(farthest-side, transparent 70%, #000 71%);
+            -webkit-mask: radial-gradient(farthest-side, transparent 70%, #000 71%);
+        }
+
+        .spinner::after {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f97316, #2563eb);
+            mask: radial-gradient(farthest-side, #000 70%, transparent 71%);
+            -webkit-mask: radial-gradient(farthest-side, #000 70%, transparent 71%);
+        }
+
+        .spinner-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #f97316;
+            border-radius: 50%;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: blur(2px);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translateX(-50%) scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        /* Export sizes */
+        .size-64 {
+            transform: scale(0.32);
+        }
+        .size-96 {
+            transform: scale(0.48);
+        }
+        .size-128 {
+            transform: scale(0.64);
+        }
+        .size-256 {
+            transform: scale(1.28);
+        }
+    </style>
+</head>
+<body>
+    <!-- Original 200px size -->
+    <div class="spinner-container">
+        <div class="spinner">
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+
+    <!-- Different sizes for export -->
+    <div class="spinner-container size-64">
+        <div class="spinner">
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+
+    <div class="spinner-container size-96">
+        <div class="spinner">
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+
+    <div class="spinner-container size-128">
+        <div class="spinner">
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+
+    <div class="spinner-container size-256">
+        <div class="spinner">
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+</body>
+</html>

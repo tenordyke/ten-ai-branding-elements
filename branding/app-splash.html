@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ten AI Tech - Mobile App Splash Screen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #111;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        /* iPhone 12/13 Pro Max size as base */
+        .splash-screen {
+            width: 428px;
+            height: 926px;
+            background: linear-gradient(135deg, #1a1a1a, #111827);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(249, 115, 22, 0.1) 0%, 
+                rgba(37, 99, 235, 0.1) 100%);
+        }
+
+        .logo-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #f97316, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #e5e7eb;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .logo-mark {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #f97316, #2563eb);
+            border-radius: 24px;
+            margin-bottom: 24px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-mark::after {
+            content: "T";
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+        }
+
+        .decorative-element {
+            position: absolute;
+            background: linear-gradient(45deg, #f97316, #2563eb);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+        .decorative-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .decorative-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            left: -50px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Additional sizes for different devices */
+        .iphone-se {
+            width: 375px;
+            height: 667px;
+        }
+
+        .iphone-14-pro {
+            width: 393px;
+            height: 852px;
+        }
+
+        .pixel-7 {
+            width: 412px;
+            height: 915px;
+        }
+
+        .samsung-s21 {
+            width: 360px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <!-- iPhone 12/13 Pro Max -->
+    <div class="splash-screen">
+        <div class="gradient-overlay"></div>
+        <div class="decorative-element decorative-1"></div>
+        <div class="decorative-element decorative-2"></div>
+        <div class="logo-container">
+            <div class="logo-mark"></div>
+            <h1 class="title">Ten AI Tech</h1>
+            <p class="subtitle">AI-Powered Real Estate Automation</p>
+        </div>
+    </div>
+</body>
+</html>
