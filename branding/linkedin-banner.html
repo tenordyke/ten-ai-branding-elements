@@ -18,84 +18,179 @@
         .banner {
             width: 1584px;
             height: 396px;
-            background: linear-gradient(135deg, #1a1a1a, #111827);
+            background: #0B0F17;
             position: relative;
             overflow: hidden;
         }
 
-        .gradient-overlay {
+        /* Particle effect */
+        .particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, 
-                rgba(249, 115, 22, 0.1) 0%, 
-                rgba(37, 99, 235, 0.1) 100%);
+            overflow: hidden;
+            z-index: 1;
         }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .particle::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(var(--rotation));
+            transform-origin: left center;
+        }
+
+        /* Generate 20 particles with different positions and rotations */
+        .particle:nth-child(1) { top: 20%; left: 10%; --rotation: 30deg; }
+        .particle:nth-child(2) { top: 40%; left: 20%; --rotation: -45deg; }
+        .particle:nth-child(3) { top: 60%; left: 30%; --rotation: 60deg; }
+        .particle:nth-child(4) { top: 30%; left: 40%; --rotation: -30deg; }
+        .particle:nth-child(5) { top: 70%; left: 50%; --rotation: 45deg; }
+        .particle:nth-child(6) { top: 25%; left: 60%; --rotation: -60deg; }
+        .particle:nth-child(7) { top: 45%; left: 70%; --rotation: 30deg; }
+        .particle:nth-child(8) { top: 65%; left: 80%; --rotation: -45deg; }
+        .particle:nth-child(9) { top: 35%; left: 90%; --rotation: 60deg; }
+        .particle:nth-child(10) { top: 55%; left: 15%; --rotation: -30deg; }
+        .particle:nth-child(11) { top: 75%; left: 25%; --rotation: 45deg; }
+        .particle:nth-child(12) { top: 15%; left: 35%; --rotation: -60deg; }
+        .particle:nth-child(13) { top: 85%; left: 45%; --rotation: 30deg; }
+        .particle:nth-child(14) { top: 25%; left: 55%; --rotation: -45deg; }
+        .particle:nth-child(15) { top: 45%; left: 65%; --rotation: 60deg; }
+        .particle:nth-child(16) { top: 65%; left: 75%; --rotation: -30deg; }
+        .particle:nth-child(17) { top: 35%; left: 85%; --rotation: 45deg; }
+        .particle:nth-child(18) { top: 55%; left: 95%; --rotation: -60deg; }
+        .particle:nth-child(19) { top: 75%; left: 5%; --rotation: 30deg; }
+        .particle:nth-child(20) { top: 15%; left: 15%; --rotation: -45deg; }
 
         .content {
             position: relative;
-            z-index: 1;
-            padding: 60px;
+            z-index: 2;
+            padding: 40px 60px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             height: 100%;
             box-sizing: border-box;
         }
 
+        .text-content {
+            max-width: 800px;
+        }
+
         .title {
-            font-size: 72px;
+            font-size: 64px;
             font-weight: 800;
-            margin: 0;
-            background: linear-gradient(to right, #f97316, #2563eb);
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #FF6B4A, #FF4A8B, #4A9FFF);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.2;
-            margin-bottom: 20px;
         }
 
-        .subtitle {
-            font-size: 28px;
-            color: #e5e7eb;
-            margin: 0;
-            max-width: 800px;
-            line-height: 1.4;
-        }
-
-        .decorative-element {
-            position: absolute;
-            background: linear-gradient(45deg, #f97316, #2563eb);
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-        }
-
-        .decorative-1 {
+        .metrics {
+            background: rgba(11, 15, 23, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             width: 400px;
-            height: 400px;
-            top: -100px;
-            right: -100px;
         }
 
-        .decorative-2 {
-            width: 300px;
-            height: 300px;
-            bottom: -100px;
-            left: -50px;
+        .metric {
+            margin-bottom: 16px;
+            color: #e5e7eb;
+        }
+
+        .metric-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FF4A8B;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(90deg, #FF6B4A, #FF4A8B);
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
     <div class="banner">
-        <div class="gradient-overlay"></div>
-        <div class="decorative-element decorative-1"></div>
-        <div class="decorative-element decorative-2"></div>
+        <div class="particles">
+            <!-- Generate 20 particles -->
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
         <div class="content">
-            <h1 class="title">Ten AI Tech</h1>
-            <p class="subtitle">AI-Powered Real Estate Automation</p>
+            <div class="text-content">
+                <h1 class="title">Transform Your Real Estate Business With Intelligent AI Automation</h1>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-title">
+                        <span class="icon">⚡</span>
+                        Lead Response Time
+                    </div>
+                    <div class="metric-value">&lt; 2 min avg</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">
+                        <span class="icon">📈</span>
+                        Conversion Rate
+                    </div>
+                    <div class="metric-value">47% MTD</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">
+                        <span class="icon">🎯</span>
+                        Active Leads
+                    </div>
+                    <div class="metric-value">247</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

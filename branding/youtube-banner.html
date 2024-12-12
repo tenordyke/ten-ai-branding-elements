@@ -16,18 +16,60 @@
         }
 
         .banner {
-            width: 2560px; /* YouTube recommended size */
+            width: 2560px;
             height: 1440px;
-            background: linear-gradient(135deg, #1a1a1a, #111827);
+            background: #0B0F17;
             position: relative;
             overflow: hidden;
         }
 
+        /* Particle effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .particle::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(var(--rotation));
+            transform-origin: left center;
+        }
+
+        /* Generate 30 particles with different positions and rotations */
+        .particle:nth-child(1) { top: 20%; left: 10%; --rotation: 30deg; }
+        .particle:nth-child(2) { top: 40%; left: 20%; --rotation: -45deg; }
+        .particle:nth-child(3) { top: 60%; left: 30%; --rotation: 60deg; }
+        .particle:nth-child(4) { top: 30%; left: 40%; --rotation: -30deg; }
+        .particle:nth-child(5) { top: 70%; left: 50%; --rotation: 45deg; }
+        .particle:nth-child(6) { top: 25%; left: 60%; --rotation: -60deg; }
+        .particle:nth-child(7) { top: 45%; left: 70%; --rotation: 30deg; }
+        .particle:nth-child(8) { top: 65%; left: 80%; --rotation: -45deg; }
+        .particle:nth-child(9) { top: 35%; left: 90%; --rotation: 60deg; }
+        .particle:nth-child(10) { top: 55%; left: 15%; --rotation: -30deg; }
+        .particle:nth-child(11) { top: 75%; left: 25%; --rotation: 45deg; }
+        .particle:nth-child(12) { top: 15%; left: 35%; --rotation: -60deg; }
+        .particle:nth-child(13) { top: 85%; left: 45%; --rotation: 30deg; }
+        .particle:nth-child(14) { top: 25%; left: 55%; --rotation: -45deg; }
+        .particle:nth-child(15) { top: 45%; left: 65%; --rotation: 60deg; }
+
         .safe-area {
-            /* TV Safe area: 2560x1440 */
-            /* Desktop Safe area: 2560x423 */
-            /* Tablet Safe area: 1855x423 */
-            /* Mobile Safe area: 1546x423 */
             position: absolute;
             top: 50%;
             left: 50%;
@@ -35,74 +77,86 @@
             width: 1546px; /* Mobile safe area width */
             height: 423px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             z-index: 2;
+            padding: 0 60px;
+            box-sizing: border-box;
         }
 
-        .gradient-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, 
-                rgba(249, 115, 22, 0.1) 0%, 
-                rgba(37, 99, 235, 0.1) 100%);
-            z-index: 1;
+        .text-content {
+            max-width: 800px;
         }
 
         .title {
-            font-size: 120px;
+            font-size: 72px;
             font-weight: 800;
-            margin: 0;
-            background: linear-gradient(to right, #f97316, #2563eb);
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #FF6B4A, #FF4A8B, #4A9FFF);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            text-align: center;
         }
 
         .subtitle {
-            font-size: 48px;
+            font-size: 24px;
             color: #e5e7eb;
             margin: 0;
             line-height: 1.4;
-            text-align: center;
+            max-width: 600px;
         }
 
-        .decorative-element {
-            position: absolute;
-            background: linear-gradient(45deg, #f97316, #2563eb);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.15;
+        .metrics {
+            background: rgba(11, 15, 23, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 450px;
         }
 
-        .decorative-1 {
-            width: 1000px;
-            height: 1000px;
-            top: -300px;
-            right: -300px;
+        .metric {
+            margin-bottom: 20px;
+            color: #e5e7eb;
         }
 
-        .decorative-2 {
-            width: 800px;
-            height: 800px;
-            bottom: -200px;
-            left: -200px;
+        .metric:last-child {
+            margin-bottom: 0;
         }
 
-        /* Visual guide for safe areas (comment out in production) */
+        .metric-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #FF4A8B;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(90deg, #FF6B4A, #FF4A8B);
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Visual guides for safe areas */
         .safe-area-guide {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            border: 2px dashed rgba(255,255,255,0.2);
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            pointer-events: none;
         }
 
         .tv-safe {
@@ -128,19 +182,59 @@
 </head>
 <body>
     <div class="banner">
-        <div class="gradient-overlay"></div>
-        <div class="decorative-element decorative-1"></div>
-        <div class="decorative-element decorative-2"></div>
-        
-        <!-- Safe area guides (comment out in production) -->
+        <div class="particles">
+            <!-- Generate 15 particles -->
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Safe area guides -->
         <div class="safe-area-guide tv-safe"></div>
         <div class="safe-area-guide desktop-safe"></div>
         <div class="safe-area-guide tablet-safe"></div>
         <div class="safe-area-guide mobile-safe"></div>
 
         <div class="safe-area">
-            <h1 class="title">Ten AI Tech</h1>
-            <p class="subtitle">AI-Powered Real Estate Automation</p>
+            <div class="text-content">
+                <h1 class="title">Transform Your Real Estate Business</h1>
+                <p class="subtitle">AI-Powered Automation for Modern Real Estate Professionals</p>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-title">
+                        <span class="icon">⚡</span>
+                        Time Saved
+                    </div>
+                    <div class="metric-value">20+ hrs/week</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">
+                        <span class="icon">📈</span>
+                        Deal Flow
+                    </div>
+                    <div class="metric-value">2x Increase</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">
+                        <span class="icon">🎯</span>
+                        Lead Response
+                    </div>
+                    <div class="metric-value">24/7</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
