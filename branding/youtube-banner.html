@@ -34,7 +34,7 @@
             flex-direction: column;
             justify-content: center;
             z-index: 2;
-            padding-left: 300px; /* Space for profile picture */
+            padding: 0 60px;
         }
 
         .title {
@@ -47,7 +47,7 @@
         .gradient-text {
             background: linear-gradient(90deg, 
                 #FF6B4A 0%, 
-                #FF4A8B 50%, 
+                #FF4A8B 33%, 
                 #4A9FFF 100%
             );
             -webkit-background-clip: text;
@@ -76,67 +76,11 @@
         .orange { color: #FF6B4A; }
         .pink { color: #FF4A8B; }
         .blue { color: #4A9FFF; }
-
-        /* Profile picture placeholder */
-        .profile-placeholder {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 2px dashed rgba(255, 255, 255, 0.2);
-            left: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 14px;
-        }
-
-        /* Safe area guides */
-        .safe-area-guide {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 2px dashed rgba(255, 255, 255, 0.1);
-            pointer-events: none;
-        }
-
-        .tv-safe {
-            width: 2560px;
-            height: 1440px;
-        }
-
-        .desktop-safe {
-            width: 2560px;
-            height: 423px;
-        }
-
-        .tablet-safe {
-            width: 1855px;
-            height: 423px;
-        }
-
-        .mobile-safe {
-            width: 1546px;
-            height: 423px;
-        }
     </style>
 </head>
 <body>
     <div class="banner">
-        <!-- Safe area guides -->
-        <div class="safe-area-guide tv-safe"></div>
-        <div class="safe-area-guide desktop-safe"></div>
-        <div class="safe-area-guide tablet-safe"></div>
-        <div class="safe-area-guide mobile-safe"></div>
-
         <div class="safe-area">
-            <!-- Profile picture placeholder -->
-            <div class="profile-placeholder">Profile Picture Area</div>
-
             <h1 class="title">
                 <span class="gradient-text">Transform Your Real</span><br>
                 <span class="gradient-text">Estate Business</span><br>
