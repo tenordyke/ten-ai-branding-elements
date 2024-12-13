@@ -24,7 +24,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 60px 0 400px; /* Extra padding on left for profile picture */
+            padding: 0 60px;
             box-sizing: border-box;
         }
 
@@ -39,7 +39,7 @@
         .gradient-text {
             background: linear-gradient(90deg, 
                 #FF6B4A 0%, 
-                #FF4A8B 50%, 
+                #FF4A8B 33%, 
                 #4A9FFF 100%
             );
             -webkit-background-clip: text;
@@ -69,24 +69,6 @@
         .pink { color: #FF4A8B; }
         .blue { color: #4A9FFF; }
 
-        /* Profile picture placeholder */
-        .profile-placeholder {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 2px dashed rgba(255, 255, 255, 0.2);
-            left: 150px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 14px;
-            z-index: 2;
-        }
-
         /* Additional features section */
         .additional-features {
             display: flex;
@@ -108,9 +90,6 @@
 </head>
 <body>
     <div class="header-banner">
-        <!-- Profile picture placeholder -->
-        <div class="profile-placeholder">Profile Picture Area</div>
-
         <h1 class="title">
             <span class="gradient-text">Transform Your Real</span><br>
             <span class="gradient-text">Estate Business</span><br>
