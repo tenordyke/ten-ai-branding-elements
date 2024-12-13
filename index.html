@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Branding Preview</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+        }
+        select {
+            padding: 8px;
+            margin-bottom: 20px;
+            width: 300px;
+            font-size: 16px;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100vh - 150px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Branding Preview</h1>
+    <select id="fileSelect" onchange="loadFile()">
+        <option value="">Select a file to preview</option>
+        <option value="linkedin-banner">LinkedIn Banner</option>
+        <option value="youtube-banner">YouTube Banner</option>
+        <option value="social-header">Social Header</option>
+        <option value="business-card">Business Card</option>
+        <option value="email-signature">Email Signature</option>
+        <option value="app-splash">App Splash</option>
+        <option value="loading-spinner">Loading Spinner</option>
+        <option value="presentation-template">Presentation Template</option>
+        <option value="profile-picture">Profile Picture</option>
+    </select>
+    <div id="preview"></div>
+
+    <script>
+        function loadFile() {
+            const select = document.getElementById('fileSelect');
+            const preview = document.getElementById('preview');
+            const file = select.value;
+            
+            if (file) {
+                preview.innerHTML = `<iframe src="branding/${file}.html"></iframe>`;
+            } else {
+                preview.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>

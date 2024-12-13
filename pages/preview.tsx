@@ -7,7 +7,7 @@ export default function Preview() {
   
   const handleFileChange = (file: string) => {
     setSelectedFile(file);
-    router.push(`/?file=${file}`);
+    router.push(`/preview?file=${file}`);
   };
 
   return (
